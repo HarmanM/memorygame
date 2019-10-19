@@ -1,0 +1,55 @@
+body {
+    padding: 50px;
+}
+.square {
+    display: inline-flex;
+    margin: 5px;
+    height: 65px;
+    width: 65px;
+    background-color: #555;
+}
+
+.flipCorrect {
+    background-color: #00BFFF;
+    transform: rotateY(180deg);
+    transition: transform 0.75s, background-color 1.5s;
+}
+
+.flipSlowCorrect {
+    background-color: #00BFFF;
+    transform: rotateY(180deg);
+    transition: transform 1.5s, background-color 3s;
+}
+
+.flipIncorrect {
+    background-color: #f51d1d;
+    transform: rotateY(180deg);
+    transition: transform 0.75s, background-color 1.5s;
+}
+
+.flipHide {
+    background-color: #555;
+    transform: rotateY(0deg);
+    transition: transform 1.5s, background-color 2.5s;
+}
+
+.rotate {
+    transform: rotateZ(90deg);
+    transition: transform 1.5s;
+}
+
+#squareHolder {
+    text-align: center;
+    margin-top: 150px;
+    overflow: hidden;
+    position: absolute;
+    margin: auto;
+    left: 40%;
+
+}
+
+h2 {
+    display: block;
+    font-family: roboto, sans-serif;
+    margin-top: 25px;
+}
