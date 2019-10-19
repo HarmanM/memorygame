@@ -23,17 +23,19 @@ function generateSquares(row, columns) {
             square.setAttribute("class", "square");
             square.setAttribute("onclick", "squareClick()");
             square.onclick = function() {
-                squareClick(this, i + "" + j)
+                squareClick(this);
             }
             container.appendChild(square);
         }
         container.appendChild(document.createElement("br"));
     }
     generateBlueSquares(numCorrectSquares);
+    disableOnClick();
     setTimeout(revealAllCorrectSquares, 2000);
     setTimeout(flipHide, 4000);
     setTimeout(rotateContainer, 5500);
     setTimeout(toggleOff, 1000);
+    setTimeout(enableOnClick, 6750);
 }
 
 
@@ -60,7 +62,7 @@ function generateBlueSquares(numCorrectSquares) {
 
 }
 
-function squareClick(square, ID) {
+function squareClick(square) {
     let squareList = document.getElementsByClassName("square");
     let container = document.getElementById("squareHolder");
 
@@ -212,6 +214,16 @@ function disableOnClick() {
     let squareList = document.getElementsByClassName("square");
     for (let square of squareList) {
         square.setAttribute('onClick', null);
+    }
+}
+
+function enableOnClick() {
+    let squareList = document.getElementsByClassName("square");
+    for (let square of squareList) {
+        square.setAttribute("onclick", "squareClick()");
+        square.onclick = function() {
+            squareClick(this);
+        }
     }
 }
 
